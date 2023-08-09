@@ -1,17 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgsq8tvucbn6h"]
+[gd_scene load_steps=8 format=3 uid="uid://b8ee1t1ruvdte"]
 
-[ext_resource type="Script" path="res://scripts/level.gd" id="1_qx7cy"]
-[ext_resource type="Texture2D" uid="uid://carror2e1qn0u" path="res://sprites/space_background.png" id="2_m03sb"]
-[ext_resource type="PackedScene" uid="uid://c5e0ofd04qyij" path="res://scenes/player.tscn" id="3_gldky"]
-[ext_resource type="PackedScene" uid="uid://c1ept6hvctirl" path="res://scenes/maze.tscn" id="4_apny0"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_x30pl"]
+[ext_resource type="Texture2D" uid="uid://carror2e1qn0u" path="res://sprites/space_background.png" id="2_0ylaw"]
+[ext_resource type="PackedScene" uid="uid://cgsq8tvucbn6h" path="res://scenes/levels/level_2.tscn" id="2_b7wbl"]
+[ext_resource type="PackedScene" uid="uid://c5e0ofd04qyij" path="res://scenes/player.tscn" id="3_uxb18"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qksk3"]
 font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_r5gr7"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2eywh"]
+radius = 30.0
+
 [node name="Level" type="Node2D"]
-script = ExtResource("1_qx7cy")
+script = ExtResource("1_x30pl")
+next_level = ExtResource("2_b7wbl")
 
 [node name="Labels" type="Node" parent="."]
 
@@ -24,10 +28,10 @@ text = "START"
 label_settings = SubResource("LabelSettings_qksk3")
 
 [node name="EndLabel" type="Label" parent="Labels"]
-offset_left = -37.0
-offset_top = 131.0
-offset_right = 35.0
-offset_bottom = 168.0
+offset_left = -36.0
+offset_top = -344.0
+offset_right = 36.0
+offset_bottom = -307.0
 text = "END"
 label_settings = SubResource("LabelSettings_qksk3")
 
@@ -53,11 +57,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_m03sb")
+texture = ExtResource("2_0ylaw")
 stretch_mode = 1
 
-[node name="Player" parent="." instance=ExtResource("3_gldky")]
+[node name="Player" parent="." instance=ExtResource("3_uxb18")]
 
-[node name="Maze" parent="." instance=ExtResource("4_apny0")]
+[node name="Maze" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Maze"]
+polygon = PackedVector2Array(-66, 63, 78, 63, 75, -68, 57, -70, 60, -238, 77, -237, 77, -348, -77, -348, -70, -237, -53, -237, -48, -67, -69, -67)
+
+[node name="Polygon2D" type="Polygon2D" parent="Maze"]
+self_modulate = Color(0.3, 0.3, 0.3, 1)
+texture_repeat = 2
+texture = ExtResource("2_0ylaw")
+polygon = PackedVector2Array(-66, 63, 78, 63, 75, -68, 57, -70, 60, -238, 77, -237, 77, -348, -77, -348, -70, -237, -53, -237, -48, -67, -69, -67)
+
+[node name="End" type="Area2D" parent="."]
+position = Vector2(0, -284)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
+shape = SubResource("CircleShape2D_2eywh")
 
 [connection signal="body_exited" from="Maze" to="." method="_on_maze_body_exited"]
+[connection signal="body_entered" from="End" to="." method="_on_end_body_entered"]
