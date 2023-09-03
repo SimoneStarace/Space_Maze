@@ -28,24 +28,25 @@ text = "START"
 label_settings = SubResource("LabelSettings_qksk3")
 
 [node name="EndLabel" type="Label" parent="Labels"]
-offset_left = -36.0
-offset_top = -344.0
-offset_right = 36.0
-offset_bottom = -307.0
+offset_left = -27.0
+offset_top = -347.0
+offset_right = 34.0
+offset_bottom = -310.0
 text = "END"
 label_settings = SubResource("LabelSettings_qksk3")
 
 [node name="Tutorial" type="Label" parent="Labels"]
-offset_left = 74.0
-offset_top = -232.0
-offset_right = 671.0
-offset_bottom = -76.0
+offset_left = 82.0
+offset_top = -245.0
+offset_right = 638.0
+offset_bottom = -56.0
 text = "Welcome to Speedy Saucer.
 You control an UFO with the keyboard using either:
 - The arrow buttons
 -  WASD
 Your objective is to reach the end of the of the maze.
-Be careful to not go outside the maze!"
+Be careful to not go outside the maze or else you will restart the level.
+Try to reach the end by simply going up with the up arrow or W button. "
 label_settings = SubResource("LabelSettings_r5gr7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -65,13 +66,13 @@ stretch_mode = 1
 [node name="Maze" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Maze"]
-polygon = PackedVector2Array(-66, 63, 78, 63, 75, -68, 57, -70, 60, -238, 77, -237, 77, -348, -77, -348, -70, -237, -53, -237, -48, -67, -69, -67)
+polygon = PackedVector2Array(-68, 64, 78, 63, 75, -68, 58, -68, 60, -236, 77, -237, 77, -348, -71, -346, -70, -237, -53, -237, -52, -67, -69, -67)
 
 [node name="Polygon2D" type="Polygon2D" parent="Maze"]
 self_modulate = Color(0.3, 0.3, 0.3, 1)
 texture_repeat = 2
 texture = ExtResource("2_0ylaw")
-polygon = PackedVector2Array(-66, 63, 78, 63, 75, -68, 57, -70, 60, -238, 77, -237, 77, -348, -77, -348, -70, -237, -53, -237, -48, -67, -69, -67)
+polygon = PackedVector2Array(-68, 64, 78, 63, 75, -68, 58, -68, 60, -236, 77, -237, 77, -348, -71, -346, -70, -237, -53, -237, -52, -67, -69, -67)
 
 [node name="End" type="Area2D" parent="."]
 position = Vector2(0, -284)
@@ -79,6 +80,7 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
 shape = SubResource("CircleShape2D_2eywh")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [connection signal="body_exited" from="Maze" to="." method="_on_maze_body_exited"]
 [connection signal="body_entered" from="End" to="." method="_on_end_body_entered"]

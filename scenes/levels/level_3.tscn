@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfq73ov0kvue8"]
+[gd_scene load_steps=7 format=3 uid="uid://cfq73ov0kvue8"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ifn3s"]
 [ext_resource type="Texture2D" uid="uid://carror2e1qn0u" path="res://sprites/space_background.png" id="2_67fhr"]
@@ -6,6 +6,8 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_qksk3"]
 font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_087k5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2eywh"]
 radius = 30.0
@@ -24,12 +26,21 @@ text = "START"
 label_settings = SubResource("LabelSettings_qksk3")
 
 [node name="EndLabel" type="Label" parent="Labels"]
-offset_left = -37.0
-offset_top = 131.0
-offset_right = 35.0
-offset_bottom = 168.0
+offset_left = -27.0
+offset_top = 137.0
+offset_right = 29.0
+offset_bottom = 174.0
 text = "END"
 label_settings = SubResource("LabelSettings_qksk3")
+
+[node name="Tutorial" type="Label" parent="Labels"]
+offset_left = 69.0
+offset_top = -122.0
+offset_right = 394.0
+offset_bottom = -60.0
+text = "Nou have learned how to play the game.
+Now complete all the levels."
+label_settings = SubResource("LabelSettings_087k5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
