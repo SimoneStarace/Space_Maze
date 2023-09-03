@@ -4,19 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://cqwbdlxbflajm" path="res://sprites/ufo.png" id="1_uie3g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj3j4"]
-radius = 16.0
+radius = 7.0
 
 [node name="Player" type="RigidBody2D"]
 z_index = 1
 script = ExtResource("1_ia8ib")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 1
-texture = ExtResource("1_uie3g")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qj3j4")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uie3g")
+
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
 position_smoothing_speed = 10.0
