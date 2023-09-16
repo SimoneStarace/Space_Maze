@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://weeaes2hiv0y"]
+
+[ext_resource type="Texture2D" uid="uid://carror2e1qn0u" path="res://sprites/space_background.png" id="1_gj6gs"]
+[ext_resource type="Script" path="res://scripts/buttons/level_button.gd" id="2_x2r5c"]
+[ext_resource type="PackedScene" uid="uid://b8ee1t1ruvdte" path="res://scenes/levels/level_1.tscn" id="3_bjdkq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aea1c"]
+font_size = 40
+
+[node name="TheEnd" type="Node"]
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Background" type="TextureRect" parent="UI"]
+self_modulate = Color(0.466667, 0.615686, 1, 0.517647)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gj6gs")
+stretch_mode = 1
+
+[node name="Congrats" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -318.5
+offset_top = 30.0
+offset_right = 318.5
+offset_bottom = 146.0
+grow_horizontal = 2
+text = "Congratulation!
+You have completed all the levels"
+label_settings = SubResource("LabelSettings_aea1c")
+horizontal_alignment = 1
+
+[node name="Reload Button" type="Button" parent="UI"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 315.0
+offset_top = -27.0
+offset_right = 520.0
+offset_bottom = 27.0
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+action_mode = 0
+button_mask = 7
+text = "Press Here
+to play the levels again"
+flat = true
+text_overrun_behavior = 2
+script = ExtResource("2_x2r5c")
+level = ExtResource("3_bjdkq")
