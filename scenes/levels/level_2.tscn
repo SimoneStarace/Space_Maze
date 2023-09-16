@@ -29,9 +29,9 @@ label_settings = SubResource("LabelSettings_qksk3")
 
 [node name="EndLabel" type="Label" parent="Labels"]
 offset_left = 475.0
-offset_top = -117.0
+offset_top = -144.0
 offset_right = 532.0
-offset_bottom = -80.0
+offset_bottom = -107.0
 text = "END"
 label_settings = SubResource("LabelSettings_qksk3")
 
@@ -63,16 +63,16 @@ position = Vector2(0, -55)
 [node name="Maze" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Maze"]
-polygon = PackedVector2Array(-63, 31, 66, 31, 65, -10, 451, -21, 452, 7, 546, 7, 545, -124, 449, -126, 449, -98, 67, -110, 67, -150, -65, -145)
+polygon = PackedVector2Array(-63, 31, 66, 31, 65, -10, 451, -6, 450, 34, 558, 34, 556, -148, 448, -148, 450, -109, 67, -110, 67, -150, -65, -145)
 
 [node name="Polygon2D" type="Polygon2D" parent="Maze"]
 self_modulate = Color(0.3, 0.3, 0.3, 1)
 texture_repeat = 2
 texture = ExtResource("2_y8d2y")
-polygon = PackedVector2Array(-63, 31, 66, 31, 65, -10, 451, -21, 452, 7, 546, 7, 545, -124, 449, -126, 449, -98, 67, -110, 67, -150, -65, -145)
+polygon = PackedVector2Array(-63, 31, 66, 31, 65, -10, 451, -6, 450, 34, 558, 34, 556, -148, 448, -148, 450, -109, 67, -110, 67, -150, -65, -145)
 
 [node name="End" type="Area2D" parent="."]
-position = Vector2(500, -55)
+position = Vector2(515, -58)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
