@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfq73ov0kvue8"]
+[gd_scene load_steps=8 format=3 uid="uid://cfq73ov0kvue8"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ifn3s"]
 [ext_resource type="Texture2D" uid="uid://carror2e1qn0u" path="res://sprites/space_background.png" id="2_67fhr"]
+[ext_resource type="PackedScene" uid="uid://obr4iey40280" path="res://scenes/levels/level_4.tscn" id="2_t33td"]
 [ext_resource type="PackedScene" uid="uid://c5e0ofd04qyij" path="res://scenes/player.tscn" id="3_fnud1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qksk3"]
@@ -14,6 +15,7 @@ radius = 30.0
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ifn3s")
+next_level = ExtResource("2_t33td")
 
 [node name="Labels" type="Node" parent="."]
 
@@ -38,7 +40,7 @@ offset_left = 69.0
 offset_top = -122.0
 offset_right = 394.0
 offset_bottom = -60.0
-text = "Nou have learned how to play the game.
+text = "You have learned how to play the game.
 Now complete all the levels."
 label_settings = SubResource("LabelSettings_087k5")
 
